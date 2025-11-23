@@ -1,85 +1,73 @@
-# 🤖 InterviewMate - Miku Edition
+# 🤖 InterviewMate - AI Job Interview Simulator
 
-![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.0-38B2AC?style=for-the-badge&logo=tailwind-css)
-![Prisma](https://img.shields.io/badge/Prisma-5.0-2D3748?style=for-the-badge&logo=prisma)
-![Gemini AI](https://img.shields.io/badge/Gemini_AI-1.5-8E75B2?style=for-the-badge&logo=google)
-![TiDB](https://img.shields.io/badge/TiDB-Cloud-4477F8?style=for-the-badge&logo=mysql)
+**InterviewMate** adalah aplikasi web modern yang membantu kandidat pelamar kerja melatih kemampuan wawancara mereka. Aplikasi ini menggunakan kecerdasan buatan (**Google Gemini AI**) yang berperan sebagai HRD profesional untuk memberikan pertanyaan yang relevan sesuai posisi dan CV, serta memberikan feedback instan.
 
-**InterviewMate** adalah aplikasi simulasi wawancara kerja berbasis AI yang interaktif dan cerdas. Ditenagai oleh **Google Gemini AI**, aplikasi ini menghadirkan **Miku**, HRD virtual yang siap mewawancarai Anda dalam Bahasa Indonesia yang natural dan profesional.
+![Project Status](https://img.shields.io/badge/Status-Development-green)
+![Tech Stack](https://img.shields.io/badge/Stack-Next.js_14-black)
 
----
+## 🚀 Fitur Utama
 
-## ✨ Fitur Unggulan
+*   **🎯 Role-Based Interview:** AI menyesuaikan pertanyaan berdasarkan posisi yang dilamar (misal: Frontend Dev, Admin, Marketing).
+*   **📄 CV Analysis:** AI membaca ringkasan CV pengguna untuk mengajukan pertanyaan yang personal.
+*   **💬 Interactive Chat:** Antarmuka chat yang intuitif dan responsif (Real-time feeling).
+*   **💡 Instant Feedback:** AI memberikan kritik dan saran setelah pengguna menjawab pertanyaan.
+*   **☁️ Cloud Database:** Data tersimpan aman menggunakan TiDB (Serverless MySQL).
 
-- **🤖 AI Interviewer "Miku"**: Simulasi wawancara yang terasa hidup dengan persona HRD yang ramah namun profesional.
-- **🇮🇩 Bahasa Indonesia Natural**: Percakapan mengalir lancar dalam Bahasa Indonesia, cocok untuk latihan interview lokal.
-- **🎯 Universal Job Role**: Bisa digunakan untuk latihan interview posisi APAPUN (IT, Ekonomi, Marketing, dll).
-- **📝 Auto-Generated Questions**: Pertanyaan disesuaikan secara dinamis berdasarkan CV dan posisi yang Anda lamar.
-- **💾 History Penyimpanan**: Riwayat chat tersimpan aman di database (MySQL/TiDB) untuk review kembali.
-- **⚡ Real-time Feedback**: Dapatkan respons instan dan feedback konstruktif dari AI.
+## 🛠️ Teknologi yang Digunakan (Tech Stack)
 
----
+Aplikasi ini dibangun dengan arsitektur **Clean Code** dan teknologi terbaru:
 
-## 🛠️ Teknologi
+*   **Framework:** [Next.js 14](https://nextjs.org/) (App Router & TypeScript)
+*   **Styling:** [Tailwind CSS](https://tailwindcss.com/) & Lucide React Icons
+*   **Database:** [MySQL](https://www.mysql.com/) (via TiDB Cloud Serverless)
+*   **ORM:** [Prisma](https://www.prisma.io/) (Type-safe database access)
+*   **AI Engine:** [Google Gemini API](https://ai.google.dev/) (`gemini-pro` model)
+*   **Deploy:** [Vercel](https://vercel.com/)
 
-Project ini dibangun dengan stack teknologi modern:
+## 📦 Cara Menjalankan di Lokal
 
-- **Frontend**: [Next.js](https://nextjs.org/) (App Router) & [Tailwind CSS](https://tailwindcss.com/)
-- **Backend**: Next.js API Routes
-- **Database**: [TiDB Cloud](https://tidbcloud.com/) (MySQL Compatible) via [Prisma ORM](https://www.prisma.io/)
-- **AI Engine**: [Google Gemini AI](https://ai.google.dev/) (`gemini-1.5-flash`)
+Ikuti langkah ini untuk mencoba project di komputermu:
 
----
+1.  **Clone Repository**
+    ```bash
+    git clone https://github.com/username-kamu/interview-mate.git
+    cd interview-mate
+    ```
 
-## 🚀 Cara Menjalankan (Local)
+2.  **Install Dependencies**
+    Pastikan kamu menggunakan `yarn`:
+    ```bash
+    yarn install
+    ```
 
-1. **Clone Repository**
+3.  **Setup Environment Variables**
+    Buat file `.env` dan isi dengan kredensial kamu:
+    ```env
+    # Database Connection (TiDB / Local MySQL)
+    DATABASE_URL="mysql://username:password@host:port/database?sslaccept=strict"
 
-   ```bash
-   git clone https://github.com/username/interviewmate.git
-   cd interviewmate
-   ```
+    # Google Gemini AI Key
+    GEMINI_API_KEY="isi_api_key_kamu_disini"
+    ```
 
-2. **Install Dependencies**
+4.  **Setup Database**
+    ```bash
+    yarn prisma generate
+    yarn prisma db push
+    ```
 
-   ```bash
-   npm install
-   ```
+5.  **Jalankan Server**
+    ```bash
+    yarn dev
+    ```
+    Buka [http://localhost:3000](http://localhost:3000) di browser.
 
-3. **Setup Environment Variables**
-   Buat file `.env` dan isi dengan:
+## 🤝 Kontribusi
 
-   ```env
-   DATABASE_URL="mysql://username:password@gateway.tidbcloud.com:4000/db?sslaccept=strict"
-   GEMINI_API_KEY="your_gemini_api_key"
-   ```
-
-4. **Setup Database**
-
-   ```bash
-   npx prisma db push
-   ```
-
-5. **Jalankan Aplikasi**
-   ```bash
-   npm run dev
-   ```
-   Buka [http://localhost:3000](http://localhost:3000) di browser Anda.
-
----
-
-## 🌐 Deployment
-
-Aplikasi ini siap dideploy ke **Vercel**.
-
-1. Push code ke GitHub.
-2. Import project di Vercel.
-3. Tambahkan Environment Variables (`DATABASE_URL`, `GEMINI_API_KEY`).
-4. Deploy! 🚀
+Project ini terbuka untuk kontribusi! Silakan buat *Pull Request* jika ingin menambahkan fitur baru seperti:
+*   Voice-to-Text (Wawancara suara).
+*   Sistem penilaian (Scoring).
+*   Login User (Auth).
 
 ---
-
-
-
-Dibuat dengan ❤️ untuk membantu pencari kerja Indonesia.
+Dibuat dengan ❤️ menggunakan Next.js dan Gemini AI.
