@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model InterviewSession {
+  id          Int      @id @default(autoincrement())
+  userRole    String
+  userCv      String   @db.Text
+  chatHistory Json
+  createdAt   DateTime @default(now())
+}
